@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2017 at 03:23 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Dec 03, 2018 at 05:57 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.1.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,8 @@ CREATE TABLE `offer_confirmed` (
 INSERT INTO `offer_confirmed` (`id`, `user_id`, `post_id`, `confirm`) VALUES
 (1, 2, 1, 0),
 (2, 4, 1, 0),
-(3, 3, 1, 0);
+(3, 3, 1, 0),
+(6, 5, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -55,19 +56,23 @@ CREATE TABLE `post` (
   `member_id` int(11) NOT NULL,
   `city` varchar(300) NOT NULL,
   `area` varchar(300) NOT NULL,
+  `rent_type` varchar(100) NOT NULL,
+  `image` varchar(200) NOT NULL,
   `discription` text NOT NULL,
-  `available` tinyint(1) NOT NULL,
-  `price` varchar(11) NOT NULL,
-  `address` text NOT NULL
+  `price` int(11) NOT NULL,
+  `address` text NOT NULL,
+  `post_date` date NOT NULL,
+  `contact_no` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `member_id`, `city`, `area`, `discription`, `available`, `price`, `address`) VALUES
-(1, 1, 'dhaka', 'bosundhara', 'A button can be set to an active (appear pressed) or a disabled (unclickable) state:', 1, '1000', '53/6,basumddha,dhaka'),
-(2, 3, 'Dhaka', 'hazaribagh', 'Let my soul smile through my heart and my heart smile through my eyes, that I may scatter rich smiles in sad hearts', 0, '10000', '53/6,baddanagar,hazaribagh,dhaka');
+INSERT INTO `post` (`id`, `member_id`, `city`, `area`, `rent_type`, `image`, `discription`, `price`, `address`, `post_date`, `contact_no`) VALUES
+(6, 5, 'dhaka', 'ghhhj', 'One Room-Sublet', 'img/h1.jpg', 'dgfg', 0, 'kjgsdfjfd', '2018-12-12', ''),
+(7, 5, 'Dhaka', 'fgg', 'Full Flat', 'img/h2.jpg', 'cfggf', 4000, 'kjgsdfjfd', '2018-12-06', 'gfggj'),
+(8, 5, 'dhaka', 'ghhhj', 'Full Flat', 'img/W0CXE9.jpg', 'tftgjg', 150000, 'kjgsdfjfd', '2018-12-15', 'jhghj');
 
 -- --------------------------------------------------------
 
@@ -89,10 +94,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `user_name`, `pass`, `email`, `name`, `mobile`) VALUES
-(1, 'imam', 'imam', 'imam@gmail.com', 'imam hoissain', '5454'),
 (2, 'fahim', 'fahim', 'fahim@gmail.com', 'fahim md riaz', '111'),
-(3, 'enayet', 'enayet', 'enayet@gmail.com', 'enayet molla', ''),
-(4, 'hello', 'hello', 'hello@gmail.com', 'hello', '016568');
+(5, 'abhi', 'pass', 'momin@gmail.com', 'momin', '04398548686'),
+(6, 'abhi', 'pass', 'kingboyabhi@gmail.com', 'momin', '04398548686');
 
 --
 -- Indexes for dumped tables
@@ -124,19 +128,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `offer_confirmed`
 --
 ALTER TABLE `offer_confirmed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

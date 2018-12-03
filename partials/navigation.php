@@ -1,7 +1,8 @@
+
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">House Rent</a>
+            <a class="navbar-brand" href="index.php" style="font-family: Comic Sans MS;font-size: 28px"><b> <span class="glyphicon glyphicon-home"></span>RentHouse.com</b></a>
         </div>
 
 
@@ -12,11 +13,10 @@
 
 
             ?>
-            <li><a href="main.php">Home</a></li>
+            <li><a href="main.php">HULULULU MAIN</a></li>
 
             <li><a href="post.php">My Post</a></li>
                 <li><a href="create_post.php">Create a post for Rent</a></li>
-                <li><a href="confirm.php">Confirm</a></li>
             <?php } ?>
         </ul>
 

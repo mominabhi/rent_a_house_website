@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['user_id'])){
-    header('Location:main.php');
+    header('Location:post.php');
 }
 
 ?>
@@ -23,7 +23,7 @@ if (isset($_POST['register'])){
             if ($connect->query($query)){
                 ?>
 
-                <p class="well alert alert-success text-center">Your are registered!you can login now</p>
+                <p class="alert alert-success text-center">Your are registered!you can login now</p>
 
                 <?php
             }
@@ -31,7 +31,6 @@ if (isset($_POST['register'])){
 
         }
     }
-
 
 }
 

@@ -110,7 +110,6 @@ include 'partials/navigation.php'
 
 </div>
 
-
 <!--main footer-->
 <?php
 include 'partials/main_footer.php'
