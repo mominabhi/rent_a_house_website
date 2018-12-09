@@ -6,17 +6,15 @@
         </div>
 
 
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" style="margin-top: 1%">
             <?php
             if (isset($_SESSION['user_id'])){
 
 
 
             ?>
-            <li><a href="main.php">HULULULU MAIN</a></li>
-
-            <li><a href="post.php">My Post</a></li>
-                <li><a href="create_post.php">Create a post for Rent</a></li>
+                <li><a href="my_posts.php"><b style="font-family: Comic Sans MS;font-size:17px">My Posts</b></a></li>
+                <li><a href="create_post.php" style="font-family: Comic Sans MS;font-size:17px"><b>Create a post for Rent</b></a></li>
             <?php } ?>
         </ul>
 

@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['user_id'])){
-    header('Location:post.php');
+    header('Location:my_posts.php');
 }
 
 ?>
@@ -20,7 +20,7 @@ if (isset($_SESSION['user_id'])){
 
                 $_SESSION['user_id'] = $result2['id'];
                 $_SESSION['login'] = true;
-                header('Location:post.php');
+                header('Location:my_posts.php');
             }
         }
 

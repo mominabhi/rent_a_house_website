@@ -3,7 +3,7 @@ include 'partials/main_head.php';
 include "partials/main_head_middle.php";
 include 'partials/navigation.php';
 
-$query="SELECT * FROM post ORDER BY post_date ASC ";
+$query="SELECT * FROM post WHERE flag=1 ORDER BY post_date DESC ";
 if($connect->query($query))
 {
     $results=$connect->query($query);

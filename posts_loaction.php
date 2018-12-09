@@ -6,7 +6,7 @@ include 'partials/navigation.php';
  <?php
         if (isset($_POST['search_submit'])) {
             $location = $_POST['location'];
-            $query = "SELECT * FROM post WHERE area LIKE'%$location%' ORDER BY post_date ASC ";
+            $query = "SELECT * FROM post WHERE area LIKE'%$location%' AND flag=1 ORDER BY post_date ASC ";
             if ($connect->query($query)) {
 
                 $results = $connect->query($query);

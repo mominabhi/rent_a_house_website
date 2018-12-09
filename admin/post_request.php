@@ -1,21 +1,19 @@
 <?php
-include 'partials/main_head.php';
-include "partials/main_head_middle.php";
-include 'partials/navigation.php';
-?>
-<?php
-if(isset($_POST['rent_search']))
-{
-    $city=$_POST['search_city'];
-    $rent_type=$_POST['rent_type'];
-    $price=$_POST['price'];
-    $query="SELECT * FROM post WHERE city='$city' AND rent_type='$rent_type' AND price <='$price' AND flag=1 ORDER BY post_date ASC";
-    if ($connect->query($query)) {
+include "head.php";
+include "admin_navigation.php";
 
-        $results = $connect->query($query);
-    }
-    ?>
-    <div class="container">
+$obj = new admin_class();
+if(isset($_POST['allow']))
+{
+    $flag=1;
+    $obj->allow($flag,$_POST);
+}
+$results = $obj->postRequest();
+if (mysqli_num_rows($results) >= 1)
+{
+?>
+<div class="container">
+    <div class="row">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-info">
@@ -25,11 +23,11 @@ if(isset($_POST['rent_search']))
                     <?php
                     foreach ($results as $result) {
                         ?>
-                        <div class="panel-body">
+                        <div class="panel panel-body">
                             <div class="panel panel-default">
-                                <div class="panel panel-body">
+                                <div class="panel-body">
                                     <div class="col-md-6">
-                                        <img src="<?php echo $result['image'] ?>" height="50%" width="100%">
+                                        <img src="<?php echo "../" . $result['image'] ?>" height="100%" width="100%">
                                     </div>
                                     <div class="col-md-6">
                                         <label>Address:</label>
@@ -46,6 +44,12 @@ if(isset($_POST['rent_search']))
                                         <p><?php echo $result['post_date'] ?></p>
                                     </div>
                                 </div>
+                                <div class="panel-footer">
+                                    <form action="" method="post">
+                                        <input type="hidden" value="<?php echo $result['id'] ?>" name="id">
+                                        <input type="submit" value="Accept Post Request" name="allow" class="btn btn-success btn-block">
+                                    </form>
+                                </div>
                             </div>
 
                         </div>
@@ -57,9 +61,21 @@ if(isset($_POST['rent_search']))
                 </div>
             </div>
         </div>
+        <?php
+        }
+        else {
+            ?>
+            <h2 class="text-center alert">No post Yet</h2>
+            <?php
+        }
+
+        ?>
+
     </div>
-    <?php
-}
 
+</div>
+
+<!--main footer-->
+<?php
+include '../partials/main_footer.php'
 ?>
-

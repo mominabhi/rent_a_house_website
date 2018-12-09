@@ -95,7 +95,7 @@ margin-top: -20px;
                                     <option>Dhaka</option>
                                     <option>Comilla</option>
                                     <option>Barisal</option>
-                                    <option>One Room-Mass</option>
+                                    <option>Jhenaidah</option>
                                     <option>One Sit-Mass</option>
                                     <option>Two Sit-Mass</option>
                                 </select>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2018 at 05:57 PM
+-- Generation Time: Dec 09, 2018 at 08:58 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.1.24
 
@@ -25,25 +25,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `offer_confirmed`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `offer_confirmed` (
+CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `confirm` tinyint(1) NOT NULL
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `mobile` varchar(100) NOT NULL,
+  `birth_date` date NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `con_pass` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `offer_confirmed`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `offer_confirmed` (`id`, `user_id`, `post_id`, `confirm`) VALUES
-(1, 2, 1, 0),
-(2, 4, 1, 0),
-(3, 3, 1, 0),
-(6, 5, 3, 0);
+INSERT INTO `admin` (`id`, `name`, `email`, `mobile`, `birth_date`, `image`, `password`, `con_pass`) VALUES
+(1, 'mominabhi', 'xelokaca@veanlo.com', '04398548686', '2018-12-13', 'img/abhi.jpg', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72'),
+(8, 'mominabhi', 'kingboyabhi@gmail.com', '04398548686', '1998-12-10', 'img/01.jpg', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72'),
+(11, 'mominabhi', 'abhipagla@gmail.com', '67678889', '1999-12-13', 'img/01.jpg', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72');
 
 -- --------------------------------------------------------
 
@@ -62,17 +65,18 @@ CREATE TABLE `post` (
   `price` int(11) NOT NULL,
   `address` text NOT NULL,
   `post_date` date NOT NULL,
-  `contact_no` varchar(100) NOT NULL
+  `contact_no` varchar(100) NOT NULL,
+  `flag` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `member_id`, `city`, `area`, `rent_type`, `image`, `discription`, `price`, `address`, `post_date`, `contact_no`) VALUES
-(6, 5, 'dhaka', 'ghhhj', 'One Room-Sublet', 'img/h1.jpg', 'dgfg', 0, 'kjgsdfjfd', '2018-12-12', ''),
-(7, 5, 'Dhaka', 'fgg', 'Full Flat', 'img/h2.jpg', 'cfggf', 4000, 'kjgsdfjfd', '2018-12-06', 'gfggj'),
-(8, 5, 'dhaka', 'ghhhj', 'Full Flat', 'img/W0CXE9.jpg', 'tftgjg', 150000, 'kjgsdfjfd', '2018-12-15', 'jhghj');
+INSERT INTO `post` (`id`, `member_id`, `city`, `area`, `rent_type`, `image`, `discription`, `price`, `address`, `post_date`, `contact_no`, `flag`) VALUES
+(7, 5, 'Dhaka', 'fgg', 'Full House', 'img/h2.jpg', 'cfggf', 4000, 'lulupapa', '2018-12-06', 'gfggj', 0),
+(9, 5, 'Jhenaidah', 'choto kamar kundu', 'Full Flat', 'img/h1.jpg', 'sajdjsfjdjk', 300000, 'Choto kamar kundu,jhenaidah', '2018-12-14', '09875676875', 1),
+(12, 2, 'Jhenaidah', 'Kallyanpur', 'Full Flat', 'img/h2.jpg', 'hdfgfgdhgdkgd', 150000, 'Choto kamar kundu,jhenaidah', '2018-12-07', '09875676875', 0);
 
 -- --------------------------------------------------------
 
@@ -103,9 +107,9 @@ INSERT INTO `user` (`id`, `user_name`, `pass`, `email`, `name`, `mobile`) VALUES
 --
 
 --
--- Indexes for table `offer_confirmed`
+-- Indexes for table `admin`
 --
-ALTER TABLE `offer_confirmed`
+ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -125,16 +129,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `offer_confirmed`
+-- AUTO_INCREMENT for table `admin`
 --
-ALTER TABLE `offer_confirmed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
